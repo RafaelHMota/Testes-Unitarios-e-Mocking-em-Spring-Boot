@@ -38,6 +38,7 @@ Editar
 spring.datasource.url=jdbc:mariadb://localhost:3306/usuariosdb
 spring.datasource.username=root
 spring.datasource.password=1234
+```
 Altere conforme necessário.
 
 ▶️ Rodando a aplicação
