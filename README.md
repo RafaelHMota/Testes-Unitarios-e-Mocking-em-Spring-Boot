@@ -17,89 +17,75 @@ Este projeto é uma API RESTful simples para gerenciamento de usuários, desenvo
 
 ## 🚀 Como rodar a aplicação
 
-### 🔧 Pré-requisitos
+### Pré-requisitos
 
 - Java 11+ instalado
-- MariaDB instalado e rodando
-- IDE (VS Code, IntelliJ ou outro)
-- Maven
+- MariaDB rodando localmente
+- IDE (VS Code, IntelliJ ou outra)
+- Maven instalado
 
-### 📁 Banco de dados
+### Configuração do banco de dados
 
-Crie o banco de dados no MariaDB:
+1. Crie o banco de dados no MariaDB:
 
 ```sql
 CREATE DATABASE usuariosdb;
-Usuário e senha padrão estão definidos em src/main/resources/application.properties:
+Configure o arquivo src/main/resources/application.properties:
 
-ini
+properties
 Copiar
 Editar
 spring.datasource.url=jdbc:mariadb://localhost:3306/usuariosdb
 spring.datasource.username=root
 spring.datasource.password=1234
-```
-Altere conforme necessário.
 
-▶️ Rodando a aplicação
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+```
+
+⚠️ Ajuste username e password conforme sua instalação do MariaDB.
+
+Rodando a aplicação
 No terminal, execute:
 
-bash
 Copiar
 Editar
 mvn spring-boot:run
-A aplicação estará disponível em: http://localhost:8080
+A aplicação estará disponível em:
+📍 http://localhost:8080
 
 📫 Endpoints disponíveis
-🔹 Listar todos os usuários
-bash
-Copiar
-Editar
-GET /users
-🔹 Buscar usuário por ID
-bash
-Copiar
-Editar
-GET /users/{id}
-🔹 Criar novo usuário
-bash
-Copiar
-Editar
-POST /users
-Content-Type: application/json
+Método	Endpoint	Descrição
+GET	/users	Lista todos os usuários
+GET	/users/{id}	Busca usuário por ID
+POST	/users	Cria um novo usuário
+DELETE	/users/{id}	Deleta um usuário existente
 
+Exemplo de requisição POST /users
+
+Copiar
+Editar
 {
   "name": "Rafa",
   "email": "rafa@email.com"
 }
-🔹 Deletar usuário
-bash
-Copiar
-Editar
-DELETE /users/{id}
 🧪 Executando os testes unitários
-Para rodar os testes unitários com JUnit e Mockito:
+Para rodar os testes com JUnit e Mockito, utilize o comando:
 
-bash
 Copiar
 Editar
 mvn test
-✔️ Teste implementado
-A classe UserServiceTest realiza o teste do método getAllUsers usando Mockito para simular o repositório.
+O que está sendo testado?
+A classe UserServiceTest cobre o método getAllUsers usando mock do repositório.
 
-Esperado:
+Se tudo estiver certo, a saída será:
 
-Os testes devem rodar com sucesso
-
-Saída esperada:
-
-yaml
 Copiar
 Editar
 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 [INFO] BUILD SUCCESS
 📁 Estrutura do projeto
-swift
+
 Copiar
 Editar
 usuario-api/
