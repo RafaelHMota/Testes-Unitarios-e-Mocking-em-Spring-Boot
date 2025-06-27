@@ -48,8 +48,6 @@ spring.jpa.show-sql=true
 Rodando a aplicação
 No terminal, execute:
 
-Copiar
-Editar
 mvn spring-boot:run
 A aplicação estará disponível em:
 📍 http://localhost:8080
@@ -63,31 +61,26 @@ DELETE	/users/{id}	Deleta um usuário existente
 
 Exemplo de requisição POST /users
 
-Copiar
-Editar
 {
   "name": "Rafa",
   "email": "rafa@email.com"
 }
+
 🧪 Executando os testes unitários
 Para rodar os testes com JUnit e Mockito, utilize o comando:
 
-Copiar
-Editar
 mvn test
+
 O que está sendo testado?
 A classe UserServiceTest cobre o método getAllUsers usando mock do repositório.
 
 Se tudo estiver certo, a saída será:
 
-Copiar
-Editar
 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 [INFO] BUILD SUCCESS
-📁 Estrutura do projeto
 
-Copiar
-Editar
+📁 Estrutura do projeto
+```
 usuario-api/
 ├── src/
 │   ├── main/
@@ -101,3 +94,4 @@ usuario-api/
 │       └── java/com/exemplo/usuarioapi/service/UserServiceTest.java
 ├── pom.xml
 └── README.md
+```
